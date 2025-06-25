@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CityHelp</title>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <script src="search.js"></script>
+    <script src="carousel.js"></script>
+    <!-- Navigation -->
+    <div id="Navigation">
+        <div class="logo">CityHelp</div>
+        <div class="nav-icons">
+            <div class="nav-item"><i class="fa-solid fa-scissors"></i>Salon</div>
+            <div class="nav-item"><i class="fa-solid fa-broom"></i>Cleaning</div>
+            <div class="nav-item"><i class="fa-solid fa-screwdriver-wrench"></i>Repairs</div>
+            <div class="nav-item"><i class="fa-solid fa-ellipsis-h"></i>More</div>
+        </div>
+
+        <div class="nav-right">
+            <i class="fa-solid fa-circle-user"></i>
+            <i class="fa-solid fa-cart-shopping"></i>
+
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Your One-Stop Solution for Home Services</h1>
+        <p>From deep cleaning to skilled electricians – book trusted professionals at your convenience.</p>
+
+        <div class="search-bar">
+            <!-- Location -->
+            <div class="input-wrapper">
+                <i class="fas fa-location-dot"></i>
+                <input type="text" placeholder="Select your location" id="locationInput" readonly
+                    onclick="toggleDropdown('locationDropdown')">
+                <span class="clear-btn" onclick="clearInput('locationInput')">&times;</span>
+                <div class="dropdown-menu" id="locationDropdown">
+                    <h4>Choose Location</h4>
+                    <div onclick="selectItem('locationInput', this)">Use My Location (GPS)</div>
+                    <div onclick="selectItem('locationInput', this)">Pimpri</div>
+                    <div onclick="selectItem('locationInput', this)">Baner</div>
+                    <div onclick="selectItem('locationInput', this)">Kothrud</div>
+                </div>
+            </div>
+
+            <!-- Service -->
+            <div class="input-wrapper">
+                <i class="fas fa-magnifying-glass"></i>
+                <input type="text" placeholder="Find your service" id="serviceInput"
+                    onclick="toggleDropdown('serviceDropdown')">
+                <span class="clear-btn" onclick="clearInput('serviceInput')">&times;</span>
+                <div class="dropdown-menu" id="serviceDropdown">
+                    <h4>Popular Categories</h4>
+                    <div onclick="selectItem('serviceInput', this)">Pest control services</div>
+                    <div onclick="selectItem('serviceInput', this)">Packers and movers</div>
+                    <div onclick="selectItem('serviceInput', this)">Interior designers</div>
+                    <div onclick="selectItem('serviceInput', this)">Overseas education consultant</div>
+                    <div onclick="selectItem('serviceInput', this)">AC Repair services</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Cards -->
+    <div class="cards-container">
+        <!-- Services Card -->
+        <div class="card green">
+            <h3>Services</h3>
+            <div class="card-icons">
+                <div class="icon">
+                    <img src="home-cleaning.webp" alt="Cleaning">
+                    <p>Cleaning</p>
+                </div>
+                <div class="icon">
+                    <img src="repair.jpg" alt="Loans">
+                    <p>Repair</p>
+                </div>
+                <div class="icon">
+                    <img src="security.jpeg" alt="Security">
+                    <p>Security</p>
+                </div>
+                <div class="icon">
+                    <img src="pest.jpg" alt="Pest">
+                    <p>Pest</p>
+                </div>
+            </div>
+            <a href="#">View all</a>
+        </div>
+
+        <!-- Education Card -->
+        <div class="card peach">
+            <h3>Education</h3>
+            <div class="card-icons">
+                <div class="icon">
+                    <img src="playschool.jpg" alt="Playschool">
+                    <p>Playschool</p>
+                </div>
+                <div class="icon">
+                    <img src="school.jpg" alt="Schools">
+                    <p>Schools</p>
+                </div>
+                <div class="icon">
+                    <img src="tutions.jpg" alt="Tuitions">
+                    <p>Tuitions</p>
+                </div>
+                <div class="icon">
+                    <img src="colleges.jpg" alt="College">
+                    <p>College</p>
+                </div>
+            </div>
+            <a href="#">View all</a>
+        </div>
+
+        <!-- Home Decor Card -->
+        <div class="card beige">
+            <h3>Home Decor</h3>
+            <div class="card-icons">
+                <div class="icon">
+                    <img src="interior.jpg" alt="Interior">
+                    <p>Interior</p>
+                </div>
+                <div class="icon">
+                    <img src="appliances.jpg" alt="Appliances">
+                    <p>Appliances</p>
+                </div>
+                <div class="icon">
+                    <img src="furniture.jpg" alt="Furniture">
+                    <p>Furniture</p>
+                </div>
+                <div class="icon">
+                    <img src="paint.webp" alt="Paint">
+                    <p>Paint</p>
+                </div>
+            </div>
+            <a href="#">View all</a>
+        </div>
+    </div>
+
+    <!--Carousel-->
+
+    <div class="carousel-container">
+        <button class="carousel-btn left">&#8592;</button>
+
+        <div class="carousel-track">
+            <div class="slide">
+                <div class="carousel-card">
+                    <span class="badge">Now Available</span>
+                    <h4>AquaPure</h4>
+                    <p class="subtitle">Smart Water Filters</p>
+                    <img src="water_filter.webp" alt="Water Filter">
+                    <button class="cta">Explore</button>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="carousel-card">
+                    <span class="badge">Trending</span>
+                    <h4>Pet Care</h4>
+                    <p class="subtitle">Grooming, training & sitting</p>
+                    <img src="petcare.jpg" alt="Pet Services">
+                    <button class="cta">Book a Visit</button>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="carousel-card">
+                    <h4>Fix it fast, fix it right</h4>
+                    <p class="subtitle">Plumbing, wiring & carpentry</p>
+                    <img src="fix.jpg" alt="Repairs">
+                    <button class="cta">Hire Now</button>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="carousel-card">
+                    <h4>Style that speaks</h4>
+                    <p class="subtitle">Makeovers at home</p>
+                    <img src="makeover.jpg" alt="Stylist">
+                    <button class="cta">Get Styled</button>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="carousel-card">
+                    <span class="badge">Special</span>
+                    <h4>Event Decor Experts</h4>
+                    <p class="subtitle">Weddings, parties & more</p>
+                    <img src="decor.jpg" alt="Event Decor">
+                    <button class="cta">Decorate Now</button>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="carousel-card">
+                    <h4>Sparkling Spaces</h4>
+                    <p class="subtitle">Deep cleaning & sanitizing</p>
+                    <img src="cleaning.jpeg" alt="Cleaning">
+                    <button class="cta">Schedule</button>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="carousel-card">
+                    <h4>Quick Tech Support</h4>
+                    <p class="subtitle">Laptop, WiFi & device help</p>
+                    <img src="tech.jpg" alt="Tech Support">
+                    <button class="cta">Connect</button>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="carousel-card">
+                    <h4>Fitness at Home</h4>
+                    <p class="subtitle">Yoga, Zumba & training</p>
+                    <img src="fitness.jpg" alt="Fitness">
+                    <button class="cta">Start Now</button>
+                </div>
+            </div>
+        </div>
+
+        <button class="carousel-btn right">&#8594;</button>
+    </div>
+
+    <!-- Discover Cities -->
+    <section class="cities">
+        <h2>Discover Major Cities</h2>
+        <div class="city-list">
+            <div>
+                <img src="chennai.jpg" alt="Chennai">
+                <p>Chennai</p>
+            </div>
+            <div>
+                <img src="bangalore.webp" alt="Bangalore">
+                <p>Bangalore</p>
+            </div>
+            <div>
+                <img src="delhi.jpg" alt="Delhi">
+                <p>Delhi</p>
+            </div>
+            <div>
+                <img src="ahmedabad.webp" alt="Ahmedabad">
+                <p>Ahmedabad</p>
+            </div>
+            <div>
+                <img src="hyderabad.jpg" alt="Hyderabad">
+                <p>Hyderabad</p>
+            </div>
+            <div>
+                <img src="pune.jpg" alt="Pune">
+                <p>Pune</p>
+            </div>
+            <div>
+                <img src="mumbai.jpg" alt="Mumbai">
+                <p>Mumbai</p>
+            </div>
+            <div>
+                <img src="kolkata.jpg" alt="Kolkata">
+                <p>Kolkata</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
