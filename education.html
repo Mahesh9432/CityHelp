@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Education Services - CityHelp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: #fff;
+            color: #000000;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            gap: 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #000000;
+            /* warm orange */
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            margin: 0;
+            padding: 0;
+            flex-grow: 1;
+        }
+
+        .nav-links li a {
+            color: #121212;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            background: #fff;
+        }
+
+        .nav-links li a:hover {
+            color: #222;
+            box-shadow: 0 1px 2px #c2c2c2;
+        }
+
+        .back-home-btn {
+            background: #fff;
+            color: #000000;
+            border: none;
+            padding: 0.5rem 1rem;
+            font-weight: 700;
+            font-size: 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-home-btn:hover {
+            box-shadow: 0 1px 2px #c2c2c2;
+        }
+
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .page-heading {
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .page-subtext {
+            text-align: center;
+            max-width: 700px;
+            margin: 0.5rem auto 2rem;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.2rem;
+        }
+
+        .card-content h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: #222;
+        }
+
+        .card-content p {
+            margin: 0.5rem 0 1rem;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .card-content button {
+            background: linear-gradient(to right, #fceae8, #e8f8f5);
+            color: #000000;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-content button:hover {
+            background: linear-gradient(to right, #e8f8f5, #fceae8);
+        }
+
+        @media (max-width: 768px) {
+            .card-content h3 {
+                font-size: 1rem;
+            }
+
+            .card-content p {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: #111;
+            color: #ffffff;
+            padding: 70px 0 0;
+            position: relative;
+        }
+
+        .footer-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-brand {
+            margin-bottom: 25px;
+        }
+
+        .footer-logo {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-logo i {
+            color: #fff;
+            font-size: 2.5rem;
+        }
+
+        .footer-tagline {
+            color: #aaa;
+            font-size: 1.1rem;
+            max-width: 300px;
+            margin-bottom: 25px;
+        }
+
+        .app-download {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .app-btn {
+            display: block;
+            width: 135px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .app-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .app-btn i {
+            margin-right: 5px;
+            font-size: 1.2rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+            color: #fff;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background: #fff;
+            border-radius: 3px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+            transform: translateX(5px);
+        }
+
+        .footer-links a i {
+            color: #fff;
+            font-size: 0.9rem;
+        }
+
+        .city-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .city-grid a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .city-grid a:hover {
+            color: #fff;
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            background: rgba(255, 255, 255, 0.1);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-icon i {
+            color: #fff;
+            font-size: 1.2rem;
+        }
+
+        .contact-text {
+            color: #aaa;
+            font-size: 1rem;
+        }
+
+        .contact-text strong {
+            display: block;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: #fff;
+            transform: translateY(-5px);
+            color: #000;
+        }
+
+        .footer-newsletter {
+            margin-top: 25px;
+        }
+
+        .newsletter-text {
+            color: #aaa;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 0.95rem;
+        }
+
+        .newsletter-input::placeholder {
+            color: #aaa;
+        }
+
+        .newsletter-btn {
+            background: #fff;
+            color: rgb(0, 0, 0);
+            border: none;
+            opacity: 0.7;
+            padding: 0 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background: #fff;
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            margin-top: 60px;
+            padding: 25px 0;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .copyright {
+            color: #999;
+            font-size: 0.95rem;
+        }
+
+        .legal-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .legal-links a {
+            color: #999;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .legal-links a:hover {
+            color: #fff;
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .payment-methods img {
+            height: 25px;
+            filter: grayscale(100%) brightness(150%);
+            transition: all 0.3s ease;
+        }
+
+        .payment-methods img:hover {
+            filter: none;
+        }
+
+        .verified-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(255, 115, 22, 0.2);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 992px) {
+            .footer-main {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .legal-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .app-download {
+                flex-direction: column;
+            }
+
+            .city-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-main {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-col h3 {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo">CityHelp</div>
+        <ul class="nav-links">
+            <li><a href="services.html">Services</a></li>
+            <li><a href="homedecor.html">Home Decor</a></li>
+            <li><a href="#more">More..</a></li>
+        </ul>
+        <button class="back-home-btn" onclick="window.location.href='index.html'">Back to Home</button>
+    </div>
+
+    <h1 class="page-heading">Education & Learning Services</h1>
+    <p class="page-subtext">
+        Unlock your learning potential with CityHelp's trusted education partners. Whether you're looking for pre-school
+        options or higher studies,
+        we connect you with verified institutions and educators near you.
+    </p>
+
+    <div class="card-grid">
+        <div class="card">
+            <img src="https://healthykidplay.com/wp-content/uploads/2023/09/little-builders-how-construction-toys-foster-creativity-in-preschoolers_825_IP372957.jpg"
+                alt="Playschool"></a>
+            <div class="card-content">
+                <h3>Play Schools</h3>
+                <p>Enroll your child in nurturing play schools that focus on early development and fun learning.</p>
+                <button>Explore Schools</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://educationsnapshots.com/wp-content/uploads/sites/4/2020/05/elementary-school-classroom-design-700x500.jpg"
+                alt="Schools">
+            <div class="card-content">
+                <h3>Primary & High Schools</h3>
+                <p>Find reputed CBSE, ICSE, and State board schools offering top-notch education and holistic growth.
+                </p>
+                <button>Apply Now</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://www.olevelmaster.com.sg/wp-content/uploads/2023/01/DSC_0822-1024x683.jpg" alt="Tuitions">
+            <div class="card-content">
+                <h3>Private Tuitions</h3>
+                <p>Get personalized guidance with expert tutors for school subjects, competitive exams, and more.</p>
+                <button>Book a Tutor</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://tse2.mm.bing.net/th/id/OIP.COeDfrIo17yYqi6-2x4Q9AAAAA?rs=1&pid=ImgDetMain&o=7&rm=3"
+                alt="Colleges">
+            <div class="card-content">
+                <h3>Colleges & Institutes</h3>
+                <p>Choose from leading colleges offering undergraduate and postgraduate programs in various streams.</p>
+                <button>Join Now</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://www.msmunify.com/wp-content/uploads/2024/05/11_Blog_Best-Overseas-Education-Consultants-in-India-for-Expert-Guidance.jpg"
+                alt="Study Abroad">
+            <div class="card-content">
+                <h3>Study Abroad Consultants</h3>
+                <p>Plan your international education with certified consultants helping you through every step.</p>
+                <button>Consult Now</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://www.shutterstock.com/image-photo/beautiful-student-girl-books-on-260nw-1622341303.jpg"
+                alt="Language Classes">
+            <div class="card-content">
+                <h3>Language Classes</h3>
+                <p>Improve fluency with spoken English, German, French, and other popular language courses.</p>
+                <button>Start Learning</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://mnpnews.com/wp-content/uploads/2024/02/WhatsApp-Image-2024-02-15-at-4.04.37-PM-1.jpeg"
+                alt="Coaching">
+            <div class="card-content">
+                <h3>Competitive Coaching</h3>
+                <p>Crack exams like NEET, JEE, UPSC with top-rated coaching centers and online programs.</p>
+                <button>Enroll Today</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://indikbazaar.com/wp-content/uploads/2023/10/Hasta-Mudra_Dance_V1-600x600.jpg"
+                alt="Music School">
+            <div class="card-content">
+                <h3>Music & Dance Academies</h3>
+                <p>Join reputed institutions offering classical, western music, and various dance forms.</p>
+                <button>Join Classes</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://www.bostontechmom.com/wp-content/uploads/2019/03/Computer-Science-Class-1024x572.jpg"
+                alt="Computer Classes">
+            <div class="card-content">
+                <h3>Computer Training</h3>
+                <p>Master digital skills including MS Office, coding, graphic design, and more for your career.</p>
+                <button>Get Certified</button>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <!-- Brand Column -->
+                <div class="footer-col">
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            CityHelp
+                        </div>
+                        <p class="footer-tagline">Your trusted partner for professional home services at your
+                            convenience.</p>
+
+                        <div class="verified-badge">
+                            <i class="fas fa-shield-alt"></i>
+                            Verified Professionals
+                        </div>
+                    </div>
+
+                    <div class="app-download">
+                        <a href="#" class="app-btn">
+                            <i class="fab fa-apple"></i> App Store
+                        </a>
+                        <a href="#" class="app-btn">
+                            <i class="fab fa-google-play"></i> Play Store
+                        </a>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Services Column -->
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Home Cleaning</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> AC Repair & Service</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Plumbing Services</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Electrical Repairs</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Pest Control</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Beauty & Salon</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Painting Services</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Appliance Repair</a></li>
+                    </ul>
+                </div>
+
+                <!-- Cities Column -->
+                <div class="footer-col">
+                    <h3>Top Cities</h3>
+                    <div class="city-grid">
+                        <a href="#">Mumbai</a>
+                        <a href="#">Delhi</a>
+                        <a href="#">Bangalore</a>
+                        <a href="#">Hyderabad</a>
+                        <a href="#">Chennai</a>
+                        <a href="#">Pune</a>
+                        <a href="#">Kolkata</a>
+                        <a href="#">Ahmedabad</a>
+                        <a href="#">Jaipur</a>
+                        <a href="#">Surat</a>
+                        <a href="#">Lucknow</a>
+                        <a href="#">Nagpur</a>
+                    </div>
+                </div>
+
+                <!-- Contact Column -->
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <strong>Head Office</strong>
+                                123 Service Street, Sector 45, Pune, Maharashtra 411014
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <strong>Phone Support</strong>
+                                +91 98765 43210
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <strong>Email</strong>
+                                support@cityhelp.com
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footer-newsletter">
+                        <p class="newsletter-text">Subscribe to our newsletter for offers and updates</p>
+                        <form class="newsletter-form">
+                            <input type="email" class="newsletter-input" placeholder="Your email address">
+                            <button type="submit" class="newsletter-btn">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2025 CityHelp. All rights reserved.
+                </div>
+
+                <div class="legal-links">
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Refund Policy</a>
+                    <a href="#">Service Guarantee</a>
+                    <a href="#">Sitemap</a>
+                </div>
+
+                <div class="payment-methods">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/MasterCard_Logo.svg" alt="Mastercard">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa">
+                    <img src="https://i.imgflip.com/6w9l9v.png" alt="PayPal">
+                    <img src="https://logodix.com/logo/1763566.png" alt="UPI">
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
