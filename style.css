@@ -222,14 +222,19 @@
    color: #888;
  }
 
- .clear-btn {
-   position: absolute;
-   right: 10px;
-   top: 40%;
-   transform: translateY(-50%);
-   cursor: pointer;
-   font-size: 1.8rem;
-   color: #aaa;
+  .input-wrapper .clear-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 30px;
+    color: #aaa;
+    display: none;
+  }
+
+.input-wrapper input[type="text"]:not(:placeholder-shown) + .clear-btn {
+   display: block;
  }
 
 
