@@ -579,18 +579,7 @@
    pointer-events: none;
  }
 
- .clear-btn {
-   position: absolute;
-   top: 50%;
-   right: 12px;
-   transform: translateY(-50%);
-   font-size: 16px;
-   color: #999;
-   cursor: pointer;
-   display: none;
- }
-
- .input-wrapper input:not(:placeholder-shown)~.clear-btn {
+.input-wrapper input:not(:placeholder-shown)~.clear-btn {
    display: block;
  }
 
