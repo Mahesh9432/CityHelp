@@ -225,13 +225,13 @@
  .clear-btn {
    position: absolute;
    right: 10px;
-   top: 50%;
+   top: 40%;
    transform: translateY(-50%);
    cursor: pointer;
    font-size: 1.8rem;
    color: #aaa;
-   z-index: 2;
  }
+
 
  .carousel-container {
    position: relative;
