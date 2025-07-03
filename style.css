@@ -221,7 +221,7 @@
    color: #888;
  }
 
- .input-wrapper .clear-btn {
+ .clear-btn {
    position: absolute;
    right: 10px;
    top: 50%;
