@@ -221,6 +221,17 @@
    color: #888;
  }
 
+ .input-wrapper .clear-btn {
+   position: absolute;
+   right: 10px;
+   top: 50%;
+   transform: translateY(-50%);
+   cursor: pointer;
+   font-size: 30px;
+   color: #aaa;
+   display: none;
+ }
+
  .carousel-container {
    position: relative;
    width: 100%;
