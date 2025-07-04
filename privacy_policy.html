@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Privacy Policy | CityHelp</title>
+    <style>
+        body {
+            font-family: "Segoe UI", sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: #fff;
+            color: #000000;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            gap: 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #000000;
+        }
+
+        .back-home-btn {
+            background: #fff;
+            color: #000000;
+            margin-left: auto;
+            border: none;
+            padding: 0.5rem 1rem;
+            font-weight: 700;
+            font-size: 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-home-btn:hover {
+            box-shadow: 0 1px 2px #c2c2c2;
+        }
+
+        .sub-bar {
+            background: #fafafa;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 2rem;
+            border-bottom: 1px solid var(--sage);
+            border-top: 1px solid var(--sage);
+            flex-wrap: wrap;
+        }
+
+        .input-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            position: relative;
+            font-family: Arial, sans-serif;
+        }
+
+        .input-wrapper label {
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .input-wrapper .input-container {
+            position: relative;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .input-wrapper input[type="text"] {
+            width: 100%;
+            padding: 10px 30px 10px 35px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+
+        .input-wrapper i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+            pointer-events: none;
+        }
+
+        .input-wrapper .clear-btn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 30px;
+            color: #aaa;
+            display: none;
+        }
+
+        .input-wrapper input[type="text"]:not(:placeholder-shown)+.clear-btn {
+            display: block;
+        }
+
+        .input-wrapper .dropdown-menu {
+            position: absolute;
+            top: 105%;
+            left: 0;
+            width: 100%;
+            border: 1px solid #ccc;
+            background: #fff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+            z-index: 10;
+        }
+
+        .dropdown-menu h4 {
+            margin: 10px;
+            padding: 5px;
+            font-size: 16px;
+            border-bottom: 1px solid #ddd;
+            color: #333;
+        }
+
+        .dropdown-menu div {
+            padding: 12px 16px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 16px;
+        }
+
+        .dropdown-menu div:hover {
+            background-color: #f0f0f0;
+        }
+
+        @media (max-width: 600px) {
+            .input-wrapper {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .input-wrapper label {
+                margin-bottom: 5px;
+            }
+
+            .input-wrapper .input-container {
+                width: 100%;
+            }
+        }
+
+        .sub-bar .nav-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2rem;
+            color: #7f92a1;
+        }
+
+        .sub-bar .nav-buttons a {
+            text-decoration: none;
+            color: #222;
+            font-weight: 500;
+            padding: 0.4rem 0.75rem;
+            border-radius: 6px;
+            transition: background-color 0.3s, color 0.3s;
+            background: #ffffff;
+            border: 1px solid var(--sage);
+        }
+
+        .sub-bar .nav-buttons a:hover {
+            box-shadow: 0 1px 2px #c2c2c2;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: auto;
+            padding: 2rem 1rem;
+            display: flex;
+            gap: 2rem;
+        }
+
+        main {
+            flex: 3;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        aside {
+            flex: 1;
+            background: #f9fff9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #e0f0e0;
+            height: fit-content;
+            position: sticky;
+            top: 120px;
+        }
+
+        aside nav ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        aside nav ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        aside nav ul li a {
+            color: #000;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        aside nav ul li a.active,
+        aside nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            color: #7a8a96;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: .75rem;
+        }
+
+        footer {
+            font-size: 0.9rem;
+            color: #666;
+            background: #fff7f2;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        select {
+            margin-top: 1rem;
+            padding: .5rem;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo">CityHelp</div>
+        <button class="back-home-btn" onclick="window.location.href='index.html'">
+            Back to Home
+        </button>
+    </div>
+    <div class="sub-bar">
+        <div class="input-wrapper">
+            <label for="languageInput">Languages:</label>
+            <div class="input-container">
+                <i class="fas fa-globe"></i>
+                <input type="text" id="languageInput" placeholder="Find your Language" readonly
+                    onclick="toggleDropdown('languageDropdown')" />
+                <span class="clear-btn" onclick="clearInput('languageInput')">&times;</span>
+                <div class="dropdown-menu" id="languageDropdown">
+                    <h4>Languages</h4>
+                    <div onclick="selectItem('languageInput', 'en')">English</div>
+                    <div onclick="selectItem('languageInput', 'hi')">हिन्दी</div>
+                    <div onclick="selectItem('languageInput', 'mr')">मराठी</div>
+                    <div onclick="selectItem('languageInput', 'ta')">தமிழ்</div>
+                    <div onclick="selectItem('languageInput', 'bn')">বাংলা</div>
+                    <div onclick="selectItem('languageInput', 'gu')">ગુજરાતી</div>
+                </div>
+            </div>
+        </div>
+        <header>
+            <h1>Privacy Policy</h1>
+        </header>
+        <div class="nav-buttons">
+            <a href="terms&conditions.html">Terms & Conditions</a>
+            <a href="/help">Help & Support</a>
+            <a href="/about">About Us</a>
+        </div>
+    </div>
+    <div class="container">
+        <main id="privacy-content"></main>
+        <aside>
+            <nav>
+                <ul id="sidebar-links"></ul>
+            </nav>
+        </aside>
+    </div>
+    <footer>&copy; 2025 CityHelp. All rights reserved.</footer>
+    <script>
+        const privacyData = {
+            en: [
+                {
+                    id: "info-collection",
+                    title: "1. Information We Collect and Why",
+                    points: [
+                        "We collect personal information such as name, email address, phone number, and location to provide our services effectively, either with your consent or as part of our contractual obligations.",
+                        "Technical information including IP address, browser type, device identifiers, and operating system is collected for security monitoring and improving system performance.",
+                        "Usage data such as your interactions with the platform, preferences, and access logs are collected to personalize and optimize your experience.",
+                        "We collect communications such as support requests, feedback, and inquiries to offer better customer service.",
+                        "We may use cookies and similar tracking technologies. Please refer to our Cookie Policy for detailed information."
+                    ]
+                },
+                {
+                    id: "legal-basis",
+                    title: "2. Legal Basis for Processing & Data Retention",
+                    points: [
+                        "We process data based on legal grounds including user consent, contractual necessity, compliance with legal obligations, or our legitimate business interests.",
+                        "We retain personal information for a period of up to two years unless a longer period is required by law or necessary for legitimate purposes such as dispute resolution or fraud prevention.",
+                        "Anonymized data may be retained indefinitely for research, analytics, and platform improvement."
+                    ]
+                },
+                {
+                    id: "data-sharing",
+                    title: "3. Data Sharing and Transfers",
+                    points: [
+                        "We do not sell or rent your personal data to third parties.",
+                        "We may share your data with trusted service providers (such as cloud hosting, analytics, or customer support partners) who are bound by strict confidentiality agreements.",
+                        "Data may be disclosed to legal or regulatory authorities if required to comply with applicable laws or enforce legal rights."
+                    ]
+                },
+                {
+                    id: "security",
+                    title: "4. Data Security",
+                    points: [
+                        "We implement industry-standard security measures including Transport Layer Security (TLS), data encryption, and secure access protocols to protect your information.",
+                        "Regular security audits and vulnerability assessments are conducted to detect and prevent unauthorized access."
+                    ]
+                },
+                {
+                    id: "cookies",
+                    title: "5. Cookies and Tracking Technologies",
+                    points: [
+                        "We use essential, performance, and targeting cookies to ensure smooth operation of our platform and to enhance user experience.",
+                        "You can manage cookie preferences through your browser settings or our cookie banner."
+                    ]
+                },
+                {
+                    id: "child-privacy",
+                    title: "6. Children's Privacy",
+                    points: [
+                        "Our services are not intended for children under the age of 13. We do not knowingly collect data from minors.",
+                        "If we become aware of any such data, we will promptly delete it unless required for legal purposes."
+                    ]
+                },
+                {
+                    id: "rights",
+                    title: "7. Your Data Rights",
+                    points: [
+                        "You have the right to access, correct, delete, or restrict your personal data at any time, subject to verification.",
+                        "You may withdraw consent or object to certain data uses without affecting service legality up to that point.",
+                        "To exercise your rights, please contact us at privacy@cityhelp.com."
+                    ]
+                },
+                {
+                    id: "changes",
+                    title: "8. Changes to This Policy",
+                    points: [
+                        "We may update this privacy policy periodically to reflect legal or operational changes.",
+                        "Material updates will be notified via our platform or registered email."
+                    ]
+                },
+                {
+                    id: "contact",
+                    title: "9. Contact Information",
+                    points: [
+                        "If you have questions about this policy or your personal data, please reach out to our privacy team at privacy@cityhelp.com."
+                    ]
+                }
+            ],
+
+            hi: [
+                {
+                    id: "info-collection",
+                    title: "1. हम कौन-सी जानकारी एकत्र करते हैं और क्यों",
+                    points: [
+                        "हम आपकी सहमति या अनुबंध के तहत, सेवाएं प्रदान करने के लिए नाम, ईमेल, फ़ोन नंबर और स्थान जैसी व्यक्तिगत जानकारी एकत्र करते हैं।",
+                        "आईपी पता, ब्राउज़र प्रकार, डिवाइस पहचानकर्ता और ऑपरेटिंग सिस्टम जैसी तकनीकी जानकारी सुरक्षा और प्रदर्शन सुधार हेतु एकत्र की जाती है।",
+                        "प्लेटफ़ॉर्म पर आपकी गतिविधियों, पसंद और लॉग डेटा को आपके अनुभव को अनुकूलित करने के लिए उपयोग किया जाता है।",
+                        "सहायता अनुरोध, प्रतिक्रिया और पूछताछ जैसी आपकी संचार जानकारी बेहतर ग्राहक सेवा हेतु एकत्र की जाती है।",
+                        "हम कुकीज़ और समान ट्रैकिंग तकनीकों का उपयोग कर सकते हैं। कृपया हमारी कुकी नीति देखें।"
+                    ]
+                },
+                {
+                    id: "legal-basis",
+                    title: "2. प्रोसेसिंग का कानूनी आधार और डेटा संरक्षण अवधि",
+                    points: [
+                        "हम उपयोगकर्ता की सहमति, अनुबंध आवश्यकता, कानूनी अनुपालन या वैध व्यावसायिक हित के आधार पर डेटा संसाधित करते हैं।",
+                        "व्यक्तिगत जानकारी दो वर्षों तक या कानून द्वारा आवश्यक अवधि तक संग्रहीत की जाती है।",
+                        "अनाम डेटा को विश्लेषण और अनुसंधान हेतु अनिश्चित काल तक रखा जा सकता है।"
+                    ]
+                },
+                {
+                    id: "data-sharing",
+                    title: "3. डेटा साझा करना और स्थानांतरण",
+                    points: [
+                        "हम आपकी व्यक्तिगत जानकारी किसी तीसरे पक्ष को बेचते या किराए पर नहीं देते।",
+                        "हम विश्वसनीय सेवा प्रदाताओं के साथ डेटा साझा कर सकते हैं जो गोपनीयता अनुबंधों से बंधे हैं।",
+                        "कानून के अनुसार, यदि आवश्यक हो, तो हम नियामक अधिकारियों के साथ डेटा साझा कर सकते हैं।"
+                    ]
+                },
+                {
+                    id: "security",
+                    title: "4. डेटा सुरक्षा",
+                    points: [
+                        "हम TLS, डेटा एन्क्रिप्शन और सुरक्षित प्रोटोकॉल जैसे उद्योग-मानक सुरक्षा उपायों का पालन करते हैं।",
+                        "हम नियमित सुरक्षा ऑडिट और जांच करते हैं।"
+                    ]
+                },
+                {
+                    id: "cookies",
+                    title: "5. कुकीज़ और ट्रैकिंग तकनीकें",
+                    points: [
+                        "हम आवश्यक, प्रदर्शन और लक्षित कुकीज़ का उपयोग करते हैं।",
+                        "आप ब्राउज़र सेटिंग्स या कुकी बैनर से अपनी पसंद प्रबंधित कर सकते हैं।"
+                    ]
+                },
+                {
+                    id: "child-privacy",
+                    title: "6. बच्चों की गोपनीयता",
+                    points: [
+                        "हमारी सेवाएं 13 वर्ष से कम आयु के बच्चों के लिए नहीं हैं।",
+                        "यदि हमें ऐसा डेटा ज्ञात होता है, तो हम उसे हटाने की प्रक्रिया शुरू करेंगे।"
+                    ]
+                },
+                {
+                    id: "rights",
+                    title: "7. आपके अधिकार",
+                    points: [
+                        "आपके पास अपनी व्यक्तिगत जानकारी देखने, संशोधित करने, हटाने या सीमित करने का अधिकार है।",
+                        "आप सहमति वापस ले सकते हैं या कुछ उपयोगों पर आपत्ति कर सकते हैं।",
+                        "किसी भी अधिकार के लिए कृपया privacy@cityhelp.com पर संपर्क करें।"
+                    ]
+                },
+                {
+                    id: "changes",
+                    title: "8. नीति में परिवर्तन",
+                    points: [
+                        "हम समय-समय पर कानूनी या संचालन आवश्यकताओं के अनुसार नीति को अपडेट कर सकते हैं।",
+                        "प्रमुख परिवर्तनों की सूचना ईमेल या वेबसाइट के माध्यम से दी जाएगी।"
+                    ]
+                },
+                {
+                    id: "contact",
+                    title: "9. संपर्क जानकारी",
+                    points: [
+                        "यदि आपकी कोई भी शंका है, तो कृपया privacy@cityhelp.com पर संपर्क करें।"
+                    ]
+                }
+            ],
+
+            mr: [
+                {
+                    id: "info-collection",
+                    title: "1. आम्ही कोणती माहिती गोळा करतो आणि का",
+                    points: [
+                        "आमच्या सेवा प्रभावीपणे प्रदान करण्यासाठी, तुमच्या संमतीने किंवा कराराच्या आधारावर, आम्ही नाव, ईमेल, फोन नंबर आणि स्थान यासारखी वैयक्तिक माहिती गोळा करतो.",
+                        "आयपी पत्ता, ब्राउझर प्रकार, डिव्हाइस आयडी आणि ऑपरेटिंग सिस्टम यांसारखी तांत्रिक माहिती सुरक्षितता आणि प्रणाली कार्यप्रदर्शन सुधारण्यासाठी वापरली जाते.",
+                        "तुमचा वापर, प्राधान्यक्रम आणि लॉग्ज गोळा करून तुमचा अनुभव वैयक्तिकृत केला जातो.",
+                        "ग्राहक सेवा सुधारण्यासाठी आम्ही तुमच्या चौकशी, अभिप्राय आणि संवाद गोळा करतो.",
+                        "कृपया आमच्या कुकी धोरणाचा संदर्भ घ्या कारण आम्ही कुकीज आणि तत्सम तंत्रज्ञान वापरतो."
+                    ]
+                },
+                {
+                    id: "legal-basis",
+                    title: "2. कायदेशीर आधार आणि डेटा साठवण",
+                    points: [
+                        "आम्ही संमती, करार, कायदेशीर जबाबदारी किंवा वैध व्यावसायिक हेतूंवर आधारित माहिती प्रक्रिया करतो.",
+                        "वैयक्तिक माहिती दोन वर्षांपर्यंत जतन केली जाते किंवा कायद्यानुसार आवश्यक असल्यास त्यापेक्षा जास्त काळासाठी.",
+                        "गोपनीय केलेला (अनामिक) डेटा विश्लेषण व संशोधनासाठी अनिश्चितकाळ ठेवला जाऊ शकतो."
+                    ]
+                },
+                {
+                    id: "data-sharing",
+                    title: "3. डेटा शेअरिंग आणि हस्तांतरण",
+                    points: [
+                        "आम्ही तुमची वैयक्तिक माहिती विकत नाही किंवा भाड्याने देत नाही.",
+                        "डेटा विश्वसनीय सेवा प्रदात्यांसोबत शेअर केला जाऊ शकतो, जे गोपनीयतेच्या करारांनी बांधलेले असतात.",
+                        "कायद्यानुसार, माहिती कायदेशीर संस्थांना पुरवली जाऊ शकते."
+                    ]
+                },
+                {
+                    id: "security",
+                    title: "4. डेटा सुरक्षा",
+                    points: [
+                        "आम्ही TLS, एन्क्रिप्शन आणि सुरक्षित प्रवेश प्रोटोकॉल वापरून सुरक्षा सुनिश्चित करतो.",
+                        "अनधिकृत प्रवेश रोखण्यासाठी नियमित सुरक्षा तपासणी केली जाते."
+                    ]
+                },
+                {
+                    id: "cookies",
+                    title: "5. कुकीज आणि ट्रॅकिंग तंत्रज्ञान",
+                    points: [
+                        "आम्ही आवश्यक, कार्यप्रदर्शन आणि लक्ष्यित कुकीज वापरतो.",
+                        "तुम्ही ब्राउझर सेटिंग्ज किंवा कुकी बॅनरद्वारे प्राधान्ये व्यवस्थापित करू शकता."
+                    ]
+                },
+                {
+                    id: "child-privacy",
+                    title: "6. बाल गोपनीयता",
+                    points: [
+                        "ही सेवा १३ वर्षांखालील मुलांसाठी नाही.",
+                        "अशा माहितीबाबत आम्ही ती त्वरीत हटवण्याची कारवाई करू."
+                    ]
+                },
+                {
+                    id: "rights",
+                    title: "7. तुमचे हक्क",
+                    points: [
+                        "तुम्हाला तुमचा वैयक्तिक डेटा पाहण्याचा, दुरुस्त करण्याचा, हटवण्याचा किंवा मर्यादित करण्याचा हक्क आहे.",
+                        "तुम्ही संमती मागे घेऊ शकता किंवा काही उपयोगांवर आक्षेप घेऊ शकता.",
+                        "privacy@cityhelp.com या ईमेलवर संपर्क करा."
+                    ]
+                },
+                {
+                    id: "changes",
+                    title: "8. धोरणातील बदल",
+                    points: [
+                        "कायदेशीर किंवा कार्यान्वयन कारणांमुळे धोरण कालांतराने अद्ययावत केले जाऊ शकते.",
+                        "महत्त्वाचे बदल वेबसाइट किंवा नोंदणीकृत ईमेलद्वारे सूचित केले जातील."
+                    ]
+                },
+                {
+                    id: "contact",
+                    title: "9. संपर्क माहिती",
+                    points: [
+                        "या धोरणासंबंधी शंका असल्यास कृपया privacy@cityhelp.com वर संपर्क करा."
+                    ]
+                }
+            ],
+
+            ta: [
+                {
+                    id: "info-collection",
+                    title: "1. நாம் சேகரிக்கும் தகவல்கள் மற்றும் அவற்றின் நோக்கம்",
+                    points: [
+                        "உங்கள் ஒப்புதல் அல்லது ஒப்பந்தக் காரணமாக, நாங்கள் பெயர், மின்னஞ்சல், தொலைபேசி எண் மற்றும் இருப்பிடம் போன்ற தனிப்பட்ட தகவல்களை சேகரிக்கிறோம்.",
+                        "பாதுகாப்பு மற்றும் செயல்திறனை மேம்படுத்த, ஐ.பி முகவரி, உலாவி வகை, சாதன அடையாளங்கள், இயக்க முறைமை போன்ற தொழில்நுட்பத் தகவல்களும் சேகரிக்கப்படுகின்றன.",
+                        "தளத்தின் பயன்பாடு, விருப்பங்கள் மற்றும் அணுகல் பதிவுகளை உங்கள் அனுபவத்தை தனிப்பயனாக்க இந்தத் தரவுகள் பயன்படுத்தப்படுகின்றன.",
+                        "தொழில்நுட்ப ஆதரவு, பின்னூட்டம் மற்றும் கேள்விகளை எளிதாக்க, உங்கள் தொடர்பு தகவல்களும் சேகரிக்கப்படுகின்றன.",
+                        "நாங்கள் கூகீகள் மற்றும் போன்ற கண்காணிப்பு தொழில்நுட்பங்களை பயன்படுத்தலாம். மேலும் விவரங்களுக்கு, எங்கள் கூகீ கொள்கையைப் பார்க்கவும்."
+                    ]
+                },
+                {
+                    id: "legal-basis",
+                    title: "2. தகவல் செயலாக்கத்திற்கு சட்ட அடிப்படை மற்றும் தகவல் வைத்திருக்கும் காலம்",
+                    points: [
+                        "உங்கள் ஒப்புதல், ஒப்பந்த தேவைகள், சட்டப் பிணைப்புகள் மற்றும் நாங்கள் கொண்ட நியாயமான வணிக நலன்களை அடிப்படையாகக் கொண்டு நாங்கள் தகவல்களை செயலாக்குகிறோம்.",
+                        "தனிப்பட்ட தகவல்கள் பொதுவாக 2 ஆண்டுகள் வரை வைத்திருக்கும் அல்லது தேவையான சட்டக் கால வரையிலாக இருக்கும்.",
+                        "அனானிமஸ் செய்யப்பட்ட (அடையாளம் தெரியாத) தரவுகள் ஆய்வுக்காக காலவரையின்றி வைத்திருப்பது சாத்தியமானது."
+                    ]
+                },
+                {
+                    id: "data-sharing",
+                    title: "3. தரவின் பகிர்வு மற்றும் மாற்றம்",
+                    points: [
+                        "நாங்கள் உங்கள் தனிப்பட்ட தரவுகளை மூன்றாம் தரப்பினரிடம் விற்பதையோ வாடகைக்கு விடுவதையோ செய்யவில்லை.",
+                        "நாங்கள் நம்பகத்தன்மை கொண்ட சேவை வழங்குநர்களுடன் உங்கள் தரவுகளை பகிரலாம்; அவர்கள் கையெழுத்திட்ட பாதுகாப்பு உடன்படிக்கைகளை பின்பற்றுகிறார்கள்.",
+                        "சட்ட விதிமுறைகளை பின்பற்ற வேண்டிய கட்டாயங்கள் உள்ளதாயின், நாங்கள் தகவல்களை அதிகாரிகளிடம் பகிரலாம்."
+                    ]
+                },
+                {
+                    id: "security",
+                    title: "4. தரவு பாதுகாப்பு",
+                    points: [
+                        "மொழி மாற்று பாதுகாப்பு நெறிமுறைகள் (TLS), தரவுக் குறியாக்கம், மற்றும் பாதுகாப்பான அணுகல் நடைமுறைகள் ஆகியவற்றைப் பயன்படுத்துகிறோம்.",
+                        "அனுமதியில்லாத அணுகலை தடுக்கும் வகையில், பாதுகாப்பு ஆய்வுகள் மற்றும் சேத மதிப்பீடுகள் நடைமுறைப்படுத்தப்படுகின்றன."
+                    ]
+                },
+                {
+                    id: "cookies",
+                    title: "5. கூகீக்கள் மற்றும் கண்காணிப்பு தொழில்நுட்பங்கள்",
+                    points: [
+                        "அவசியமான, செயல்திறன் மற்றும் இலக்கிடப்பட்ட கூகீக்கள் பயன்படுத்தப்படுகின்றன.",
+                        "நீங்கள் உங்கள் உலாவியில் அல்லது எங்கள் கூகீ பட்டையில் விருப்பங்களை நிர்வகிக்கலாம்."
+                    ]
+                },
+                {
+                    id: "child-privacy",
+                    title: "6. சிறுவர் தனியுரிமை",
+                    points: [
+                        "இந்த சேவைகள் 13 வயதிற்குட்பட்ட குழந்தைகளுக்காக அல்ல.",
+                        "இத்தகைய தகவல் திரட்டப்படுவதை நாங்கள் அறிவோம் என்றால், உடனடியாக அதை நீக்க நடவடிக்கை எடுக்கப்படும்."
+                    ]
+                },
+                {
+                    id: "rights",
+                    title: "7. உங்கள் தரவுப் பாதுகாப்பு உரிமைகள்",
+                    points: [
+                        "உங்கள் தனிப்பட்ட தரவை அணுக, திருத்த, நீக்க அல்லது கட்டுப்படுத்தும் உரிமை உங்களிடம் உள்ளது.",
+                        "உங்கள் ஒப்புதலை திரும்பப் பெறலாம் அல்லது குறிப்பிட்ட பயன்பாடுகளுக்கு எதிராக நீங்கள் ஆட்சேபிக்கலாம்.",
+                        "உங்கள் உரிமைகளைப் பயன்படுத்த privacy@cityhelp.com என்ற முகவரியில் எங்களைத் தொடர்பு கொள்ளவும்."
+                    ]
+                },
+                {
+                    id: "changes",
+                    title: "8. கொள்கையில் மாற்றங்கள்",
+                    points: [
+                        "சட்ட மற்றும் செயல்முறை காரணங்களால், இந்தக் கொள்கையை அவ்வப்போது புதுப்பிக்கலாம்.",
+                        "முக்கியமான மாற்றங்கள் தளத்தில் அல்லது பதிவுசெய்த மின்னஞ்சலில் அறிவிக்கப்படும்."
+                    ]
+                },
+                {
+                    id: "contact",
+                    title: "9. தொடர்புக்கு",
+                    points: [
+                        "இந்த கொள்கை அல்லது உங்கள் தரவைக் குறித்த கேள்விகளுக்காக, privacy@cityhelp.com என்ற முகவரியில் எங்களை அணுகவும்."
+                    ]
+                }
+            ],
+
+            bn: [
+                {
+                    id: "info-collection",
+                    title: "১. আমরা কী তথ্য সংগ্রহ করি এবং কেন",
+                    points: [
+                        "আমাদের পরিষেবা সঠিকভাবে প্রদান করতে, আপনার সম্মতি বা চুক্তিগত প্রয়োজনে, আমরা নাম, ইমেইল, ফোন নম্বর এবং অবস্থান ইত্যাদি ব্যক্তিগত তথ্য সংগ্রহ করি।",
+                        "নিরাপত্তা ও কর্মদক্ষতা উন্নয়নের জন্য আমরা আইপি ঠিকানা, ব্রাউজার ধরণ, ডিভাইস আইডি, এবং অপারেটিং সিস্টেমের মতো প্রযুক্তিগত তথ্য সংগ্রহ করি।",
+                        "আপনার ব্যবহারের ধরন, পছন্দ এবং লগ ডেটা আপনার অভিজ্ঞতা ব্যক্তিগতকরণ ও উন্নত করার জন্য সংগ্রহ করা হয়।",
+                        "সহায়তা অনুরোধ, প্রতিক্রিয়া এবং জিজ্ঞাসা সম্পর্কিত যোগাযোগ আমরা আরও ভাল গ্রাহক সেবা দেওয়ার জন্য ব্যবহার করি।",
+                        "আমরা কুকি এবং অনুরূপ ট্র্যাকিং প্রযুক্তি ব্যবহার করতে পারি। বিস্তারিত জানার জন্য আমাদের কুকি নীতিমালা দেখুন।"
+                    ]
+                },
+                {
+                    id: "legal-basis",
+                    title: "২. তথ্য প্রক্রিয়াকরণের আইনি ভিত্তি ও সংরক্ষণকাল",
+                    points: [
+                        "আমরা তথ্য প্রক্রিয়া করি ব্যবহারকারীর সম্মতি, চুক্তির প্রয়োজনীয়তা, আইনগত বাধ্যবাধকতা বা আমাদের বৈধ ব্যবসায়িক স্বার্থের ভিত্তিতে।",
+                        "ব্যক্তিগত তথ্য সাধারণত দুই বছর পর্যন্ত সংরক্ষণ করা হয়, অথবা আইনগত কারণে প্রয়োজনে দীর্ঘ সময়ের জন্য রাখা যেতে পারে।",
+                        "পরিচয়বিহীন (anonymized) ডেটা বিশ্লেষণ ও গবেষণার জন্য অনির্দিষ্টকালের জন্য সংরক্ষণ করা যেতে পারে।"
+                    ]
+                },
+                {
+                    id: "data-sharing",
+                    title: "৩. তথ্য ভাগাভাগি ও স্থানান্তর",
+                    points: [
+                        "আমরা আপনার ব্যক্তিগত তথ্য কোনো তৃতীয় পক্ষের কাছে বিক্রি বা ভাড়া দিই না।",
+                        "আমরা বিশ্বস্ত পরিষেবা সরবরাহকারীদের সঙ্গে তথ্য ভাগ করতে পারি, যারা কঠোর গোপনীয়তা চুক্তিতে আবদ্ধ।",
+                        "আইনি কর্তৃপক্ষের অনুরোধে প্রয়োজনীয় তথ্য প্রদান করা হতে পারে।"
+                    ]
+                },
+                {
+                    id: "security",
+                    title: "৪. তথ্য নিরাপত্তা",
+                    points: [
+                        "আমরা TLS, ডেটা এনক্রিপশন এবং নিরাপদ অ্যাক্সেস প্রোটোকলসহ শিল্প-মানের নিরাপত্তা ব্যবস্থা গ্রহণ করি।",
+                        "নিয়মিত নিরাপত্তা অডিট ও দুর্বলতা মূল্যায়নের মাধ্যমে অননুমোদিত প্রবেশ প্রতিরোধ করা হয়।"
+                    ]
+                },
+                {
+                    id: "cookies",
+                    title: "৫. কুকি এবং ট্র্যাকিং প্রযুক্তি",
+                    points: [
+                        "আমরা প্রয়োজনীয়, পারফরম্যান্স এবং লক্ষ্যযুক্ত কুকিগুলির ব্যবহার করি।",
+                        "আপনি আপনার ব্রাউজার সেটিংস বা আমাদের কুকি ব্যানার থেকে কুকি পছন্দ নিয়ন্ত্রণ করতে পারেন।"
+                    ]
+                },
+                {
+                    id: "child-privacy",
+                    title: "৬. শিশুদের গোপনীয়তা",
+                    points: [
+                        "আমাদের পরিষেবাগুলি ১৩ বছরের কম বয়সী শিশুদের জন্য নয়।",
+                        "যদি আমরা এমন কোনো তথ্য সংগ্রহের বিষয়টি জানতে পারি, তাহলে তা দ্রুত মুছে ফেলার ব্যবস্থা নেওয়া হবে।"
+                    ]
+                },
+                {
+                    id: "rights",
+                    title: "৭. আপনার তথ্য অধিকার",
+                    points: [
+                        "আপনার ব্যক্তিগত তথ্য অ্যাক্সেস, সংশোধন, মুছে ফেলা বা সীমিত করার অধিকার রয়েছে।",
+                        "আপনি আপনার সম্মতি যে কোনো সময় প্রত্যাহার করতে পারেন বা নির্দিষ্ট ব্যবহারে আপত্তি জানাতে পারেন।",
+                        "এই অধিকারগুলি প্রয়োগ করতে privacy@cityhelp.com-এ যোগাযোগ করুন।"
+                    ]
+                },
+                {
+                    id: "changes",
+                    title: "৮. নীতিমালার পরিবর্তন",
+                    points: [
+                        "আইনি ও কার্যকরী প্রয়োজনে সময়ে সময়ে আমরা এই গোপনীয়তা নীতিমালা হালনাগাদ করতে পারি।",
+                        "গুরুত্বপূর্ণ পরিবর্তনগুলো আমাদের প্ল্যাটফর্ম বা নিবন্ধিত ইমেইলের মাধ্যমে জানানো হবে।"
+                    ]
+                },
+                {
+                    id: "contact",
+                    title: "৯. যোগাযোগের তথ্য",
+                    points: [
+                        "এই নীতিমালা বা আপনার ব্যক্তিগত তথ্য সম্পর্কে কোনো প্রশ্ন থাকলে, privacy@cityhelp.com-এ আমাদের সঙ্গে যোগাযোগ করুন।"
+                    ]
+                }
+            ],
+
+            gu: [
+                {
+                    id: "info-collection",
+                    title: "1. અમે શું માહિતી એકત્રિત કરીએ છીએ અને કેમ",
+                    points: [
+                        "અમે અમારી સેવાઓ અસરકારક રીતે પ્રદાન કરવા માટે તમારું નામ, ઇમેઇલ સરનામું, ફોન નંબર અને સ્થાન જેવી વ્યક્તિગત માહિતી તમારા સંમતિથી અથવા કરાર હેઠળ એકત્રિત કરીએ છીએ.",
+                        "સુરક્ષા દેખરેખ અને સિસ્ટમના પ્રદર્શન સુધારવા માટે અમે IP સરનામું, બ્રાઉઝર પ્રકાર, ડિવાઇસ ઓળખાણ અને ઓપરેટિંગ સિસ્ટમ જેવી તકનિકી માહિતી એકત્રિત કરીએ છીએ.",
+                        "પ્લેટફોર્મ સાથેની તમારી ક્રિયાઓ, પસંદગીઓ અને પ્રવેશ લોગ્સ જેવી ઉપયોગની માહિતી તમારા અનુભવને વ્યક્તિગત અને ઓપ્ટિમાઇઝ કરવા માટે એકત્રિત કરવામાં આવે છે.",
+                        "અમે સહાય માટેના વિનંતીઓ, પ્રતિસાદ અને પૂછપરછ જેવી સંચાર માહિતી એકત્રિત કરીએ છીએ જેથી અમે વધુ સારી ગ્રાહક સેવા આપી શકીએ.",
+                        "અમે કૂકીઝ અને સમાન ટ્રેકિંગ ટેક્નોલોજીનો ઉપયોગ કરીએ છીએ. વધુ માહિતી માટે કૃપા કરીને અમારી કૂકી નીતિ જુઓ."
+                    ]
+                },
+                {
+                    id: "legal-basis",
+                    title: "2. ડેટા પ્રક્રિયાની કાનૂની આધારો અને જાળવણી સમયગાળો",
+                    points: [
+                        "અમે તમારા સંમતિ, કરારની જરૂરિયાતો, કાનૂની જવાબદારીઓ અથવા અમારી વાજબી વ્યાવસાયિક હિતોની આધાર પર ડેટા પ્રક્રિયા કરીએ છીએ.",
+                        "અમે વ્યક્તિગત માહિતી સામાન્ય રીતે બે વર્ષ સુધી જાળવી રાખીએ છીએ, સિવાય કે કાનૂની જરૂરિયાતો અથવા ધંધાકીય હિતો માટે વધુ સમયગાળો જરૂરી હોય.",
+                        "અજ્ઞાત કરેલ ડેટા (anonymous data) સંશોધન, વિશ્લેષણ અને પ્લેટફોર્મ સુધારણા માટે અનિશ્ચિત સમય સુધી જાળવી શકાય છે."
+                    ]
+                },
+                {
+                    id: "data-sharing",
+                    title: "3. ડેટા વહેંચણી અને ટ્રાન્સફર",
+                    points: [
+                        "અમે તમારા વ્યક્તિગત ડેટાને તૃતીય પક્ષને વેચતા કે ભાડે આપતા નથી.",
+                        "અમે ડેટાને વિશ્વસનીય સેવા પ્રદાતાઓ સાથે વહેંચી શકીએ છીએ જેમ કે ક્લાઉડ હોસ્ટિંગ, વિશ્લેષણ અથવા ગ્રાહક આધાર ભાગીદારો — જેઓ કડક ગુપ્તતા કરાર હેઠળ હોય છે.",
+                        "ડેટા કાનૂની અથવા નિયમનકારી અધિકારીઓને જાહેર કરવામાં આવી શકે છે જો તે કાનૂની ફરજ તરીકે જરૂરી હોય."
+                    ]
+                },
+                {
+                    id: "security",
+                    title: "4. ડેટા સુરક્ષા",
+                    points: [
+                        "અમે Transport Layer Security (TLS), ડેટા એનક્રિપ્શન અને સુરક્ષિત ઍક્સેસ પ્રોટોકોલ જેવી ઇન્ડસ્ટ્રી સ્ટાન્ડર્ડ સુરક્ષા પદ્ધતિઓ લાગુ કરીએ છીએ.",
+                        "અનધિકૃત ઍક્સેસ અટકાવવા માટે નિયમિત સુરક્ષા ઓડિટ અને જોખમ મૂલ્યાંકન કરવામાં આવે છે."
+                    ]
+                },
+                {
+                    id: "cookies",
+                    title: "5. કૂકીઝ અને ટ્રેકિંગ ટેક્નોલોજી",
+                    points: [
+                        "અમે આવશ્યક, કામગીરી-સંબંધિત અને ટાર્ગેટેડ કૂકીઝનો ઉપયોગ કરીએ છીએ જેથી પ્લેટફોર્મ યોગ્ય રીતે કામ કરે અને અનુભવ સુધરે.",
+                        "તમે તમારા બ્રાઉઝર સેટિંગ્સ અથવા અમારી કૂકી બેનર મારફતે પસંદગીઓ સંચાલિત કરી શકો છો."
+                    ]
+                },
+                {
+                    id: "child-privacy",
+                    title: "6. બાળકોની ગોપનીયતા",
+                    points: [
+                        "અમારી સેવાઓ 13 વર્ષથી નાનો ઉંમરના બાળકો માટે ઉદ્દેશિત નથી.",
+                        "જો અમને એવી માહિતી મળતી હોય કે જે નાબાલગથી છે, તો અમે તાત્કાલિક તે ડેટાને કાઢી નાખીશું સિવાય કે કાયદાકીય કારણોસર જાળવવું જરૂરી હોય."
+                    ]
+                },
+                {
+                    id: "rights",
+                    title: "7. તમારા ડેટા અધિકારો",
+                    points: [
+                        "તમારે તમારું ડેટા ઍક્સેસ કરવાનો, સુધારવાનો, કાઢી નાખવાનો અથવા તેનો ઉપયોગ મર્યાદિત કરવાનો અધિકાર છે.",
+                        "તમે આપેલી સંમતિ પાછી ખેંચી શકો છો અથવા ચોક્કસ ઉપયોગ સામે વાંધો કરી શકો છો.",
+                        "તમારા અધિકારો વાપરવા માટે કૃપા કરીને અમારો સંપર્ક કરો: privacy@cityhelp.com"
+                    ]
+                },
+                {
+                    id: "changes",
+                    title: "8. નીતિમાં ફેરફાર",
+                    points: [
+                        "અમે આ ગોપનીયતા નીતિને સમયાંતરે કાનૂની અથવા ઓપરેશનલ જરૂરીયાત મુજબ સુધારી શકીએ છીએ.",
+                        "મહત્વપૂર્ણ ફેરફારો માટે અમે પ્લેટફોર્મ અથવા નોંધાયેલા ઇમેઇલ મારફતે સૂચના આપશું."
+                    ]
+                },
+                {
+                    id: "contact",
+                    title: "9. સંપર્ક માહિતી",
+                    points: [
+                        "જો તમને આ નીતિ અથવા તમારા ડેટા વિશે પ્રશ્નો હોય, તો કૃપા કરીને અમારો સંપર્ક કરો: privacy@cityhelp.com"
+                    ]
+                }
+            ]
+        };
+        const privacyContent = document.getElementById("privacy-content");
+        const sidebarLinks = document.getElementById("sidebar-links");
+
+        function renderPolicy(lang = "en") {
+            privacyContent.innerHTML = "";
+            sidebarLinks.innerHTML = "";
+
+            const sections = privacyData[lang];
+            if (!sections || sections.length === 0) {
+                privacyContent.innerHTML =
+                    "<p>Content not available in selected language.</p>";
+                return;
+            }
+
+            sections.forEach((section) => {
+                const sec = document.createElement("section");
+                sec.className = "privacy-section";
+                sec.id = section.id;
+
+                const h2 = document.createElement("h2");
+                h2.textContent = section.title;
+
+                const ul = document.createElement("ul");
+                section.points.forEach((point) => {
+                    const li = document.createElement("li");
+                    li.textContent = point;
+                    ul.appendChild(li);
+                });
+
+                sec.appendChild(h2);
+                sec.appendChild(ul);
+                privacyContent.appendChild(sec);
+
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = `#${section.id}`;
+                a.textContent = section.title;
+                a.classList.add("sidebar-link");
+                li.appendChild(a);
+                sidebarLinks.appendChild(li);
+            });
+        }
+
+        function toggleDropdown(id) {
+            const dropdown = document.getElementById(id);
+            dropdown.style.display =
+                dropdown.style.display === "block" ? "none" : "block";
+        }
+
+        function selectItem(inputId, langCode) {
+            const input = document.getElementById(inputId);
+            input.value = getLanguageName(langCode);
+            document.getElementById("languageDropdown").style.display = "none";
+            renderPolicy(langCode);
+        }
+
+        function clearInput(id) {
+            const input = document.getElementById(id);
+            input.value = "";
+            renderPolicy("en");
+        }
+
+        function getLanguageName(code) {
+            const names = {
+                en: "English",
+                hi: "हिन्दी",
+                mr: "मराठी",
+                ta: "தமிழ்",
+                bn: "বাংলা",
+                gu: "ગુજરાતી",
+            };
+            return names[code] || code;
+        }
+
+        function updateActiveLink() {
+            const sections = document.querySelectorAll(".privacy-section");
+            const links = document.querySelectorAll(".sidebar-link");
+            let index = sections.length;
+
+            while (--index && window.scrollY + 120 < sections[index].offsetTop) { }
+
+            links.forEach((link) => link.classList.remove("active"));
+            if (links[index]) links[index].classList.add("active");
+        }
+
+        window.addEventListener("scroll", updateActiveLink);
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", function (e) {
+            const dropdown = document.getElementById("languageDropdown");
+            const input = document.getElementById("languageInput");
+            if (!dropdown.contains(e.target) && e.target !== input) {
+                dropdown.style.display = "none";
+            }
+        });
+
+        // Initial render in English
+        renderPolicy("en");
+    </script>
+</body>
+
+</html>
